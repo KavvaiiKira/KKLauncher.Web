@@ -12,18 +12,6 @@
 
         public string SteamId { get; set; }
 
-        public AppDto()
-        {
-
-        }
-
-        public AppDto(Guid id, string name, string path, string? steamId = null, byte[]? image = null)
-        {
-            Id = id;
-            Name = name;
-            Path = path;
-            SteamId = steamId ?? string.Empty;
-            Image = image ?? new byte[] { };
-        }
+        public string PCLocalIp { get; set; }
     }
 }

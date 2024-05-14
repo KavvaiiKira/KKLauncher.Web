@@ -13,9 +13,9 @@
         animation: hover_collection_item 50ms ease-in-out forwards;
     }
 
-    .collection-main--wrapper:active {
-        animation: active_collection_item 50ms ease-in-out forwards;
-    }
+        .collection-main--wrapper:hover > .collection-actions--wrapper {
+            top: 0;
+        }
 
 .collection-name {
     width: 100%;

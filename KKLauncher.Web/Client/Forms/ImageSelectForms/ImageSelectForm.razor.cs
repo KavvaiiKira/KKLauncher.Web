@@ -29,9 +29,11 @@
 
         }
 
-        public byte[] GetImage()
+        public async Task<byte[]> GetImage()
         {
-            return new byte[] { };
+            var imagePath = Path.Combine("wwwroot", "icons", "app", ImagesWithKeys[_selectedImageIndex]);
+
+            return await _httpClient.GetByteArrayAsync(imagePath);
         }
     }
 }

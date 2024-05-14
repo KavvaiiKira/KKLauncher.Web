@@ -11,7 +11,7 @@ namespace KKLauncher.Web.Client.Forms
         private EditContext? _editContext;
         private ValidationMessageStore? _messageStore;
         private bool _show = true;
-        private AppImageSelectForm? _appImageSelectForm;
+        private CollectionImageSelectForm? _collectionImageSelectForm;
 
         protected override void OnInitialized()
         {
@@ -25,6 +25,15 @@ namespace KKLauncher.Web.Client.Forms
             ValidationRequestedEventArgs args)
         {
             _messageStore?.Clear();
+
+            if (string.IsNullOrWhiteSpace(_collection!.Name))
+            {
+                _messageStore?.Add(() => _collection.Name, "Collection name must not be EMPTY!");
+            }
+            else if (_collection!.Name.Length > 20)
+            {
+                _messageStore?.Add(() => _collection.Name, "Collection name must be shorter than 20 characters!");
+            }
         }
 
         private async Task ValidSubmit()
@@ -35,7 +44,7 @@ namespace KKLauncher.Web.Client.Forms
             }
 
             _collection.Id = Guid.NewGuid();
-            _collection.Image = _appImageSelectForm!.GetImage();
+            _collection.Image = await _collectionImageSelectForm!.GetImage();
         }
 
         private async Task Cancel()

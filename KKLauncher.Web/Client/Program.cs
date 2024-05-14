@@ -32,6 +32,7 @@ namespace KKLauncher.Web.Client
             builder.Services.AddScoped<IDynamicComponentFactory, DynamicComponentFactory>();
 
             builder.Services.AddScoped<ILoginService, LoginService>();
+            builder.Services.AddScoped<IAppService, AppService>();
 
             var levelSwitch = new LoggingLevelSwitch();
             var logTemplate = "{Timestamp:yyyy-MM-dd HH:mm:ss.fff} [{Level:u3}]  {Message,-120:j}       {NewLine}{Exception}";

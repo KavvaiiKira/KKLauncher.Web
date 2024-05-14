@@ -1,4 +1,6 @@
-﻿<div class="image-selector-main--wrapper">
+﻿@inject HttpClient _httpClient
+
+<div class="image-selector-main--wrapper">
     <div class="app-image-text-dots">Image</div>
     <div class="app-image-wrapper">
         @if (_sixImagesReady)

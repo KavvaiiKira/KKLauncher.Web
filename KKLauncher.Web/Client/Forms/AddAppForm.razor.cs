@@ -3,6 +3,8 @@ using KKLauncher.Web.Contracts.Apps;
 using KKLauncher.Web.Client.Forms.ImageSelectForms;
 using Microsoft.AspNetCore.Components.Forms;
 using System.Text.RegularExpressions;
+using KKLauncher.Web.Client.Constants;
+using KKLauncher.Web.Client.Models;
 
 namespace KKLauncher.Web.Client.Forms
 {
@@ -40,7 +42,7 @@ namespace KKLauncher.Web.Client.Forms
             {
                 _messageStore?.Add(() => _app.Path, "Application path must not be EMPTY!");
             }
-            else if (!Regex.IsMatch(_app!.Path, @"^(?:[a-zA-Z]\:|\\\\[\w\.]+\\[\w.$]+)\\(?:[\w]+\\)*\w([\w.])+$"))
+            else if (!Regex.IsMatch(_app!.Path, RegexConstants.PathRegex))
             {
                 _messageStore?.Add(() => _app.Path, "Invalid application path format!");
             }
@@ -58,8 +60,19 @@ namespace KKLauncher.Web.Client.Forms
                 return;
             }
 
+            var loginToken = await _localStorageService.GetItemAsync<LoginToken>(nameof(LoginToken));
+            if (loginToken == null)
+            {
+                //TODO: Toasts
+                return;
+            }
+
             _app.Id = Guid.NewGuid();
-            _app.Image = _appImageSelectForm!.GetImage();
+            _app.Image = await _appImageSelectForm!.GetImage();
+            _app.PCLocalIp = loginToken.LoginIp;
+
+            //TODO: Toasts
+            await _appService.AddAppAsync(_app);
         }
 
         private async Task Cancel()

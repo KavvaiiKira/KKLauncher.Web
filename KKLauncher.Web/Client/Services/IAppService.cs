@@ -1,9 +1,9 @@
 ﻿using KKLauncher.Web.Contracts.Apps;
 
-namespace KKLauncher.Web.Server.Services
+namespace KKLauncher.Web.Client.Services
 {
     public interface IAppService
     {
-        Task<bool> AddAppAsync(AppDto app);
+        Task<bool> AddAppAsync(AppDto appDto);
     }
 }

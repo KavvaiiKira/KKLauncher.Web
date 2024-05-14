@@ -2,9 +2,9 @@
 
 @implements IDisposable
 
-<div class="add-collection-main--wrapper">
+<div class="add-collection-main--wrapper @(_addCollectionShown ? "add-collection-active" : string.Empty)">
     <div class="add-collection-img--wrapper">
-        <img class="add-collection-img" src="icons/plus.png" />
+        <img class="add-collection-img" src="icons/plus.png" @onclick="ShowAddCollectionForm" />
     </div>
     <div class="add-collection-form--wrapper @(_addCollectionShown ? "show" : string.Empty)">
         @if (_addCollectionShown)
