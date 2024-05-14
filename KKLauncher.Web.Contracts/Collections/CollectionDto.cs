@@ -10,6 +10,11 @@
 
         public List<Guid> Apps { get; set; }
 
+        public CollectionDto()
+        {
+            
+        }
+
         public CollectionDto(Guid id, string name, List<Guid> apps, byte[]? image = null)
         {
             Id = id;

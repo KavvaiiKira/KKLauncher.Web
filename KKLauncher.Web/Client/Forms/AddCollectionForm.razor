@@ -1,13 +1,13 @@
-﻿@using KKLauncher.Web.Contracts.Apps
+﻿@using KKLauncher.Web.Contracts.Collections
 
 @inject ComponentBus _bus
 
 @implements IDisposable
 
-<div class="add-app-form">
+<div class="add-collection-form">
     @if (_show)
     {
-        <EditForm EditContext="_editContext" OnValidSubmit="ValidSubmit" class="add-app-main--wrapper" style="height: 100%;">
+        <EditForm EditContext="_editContext" OnValidSubmit="ValidSubmit" class="add-collection-main--wrapper" style="height: 100%;">
             <div class="left-inputs--wrapper">
                 <div class="app-name">
                     <label for="app-name-input">Name:</label>

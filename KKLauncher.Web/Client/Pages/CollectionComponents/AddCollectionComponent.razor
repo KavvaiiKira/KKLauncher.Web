@@ -1,5 +1,15 @@
-﻿<div class="add-collection-main--wrapper">
+﻿@inject ComponentBus _bus
+
+@implements IDisposable
+
+<div class="add-collection-main--wrapper">
     <div class="add-collection-img--wrapper">
         <img class="add-collection-img" src="icons/plus.png" />
+    </div>
+    <div class="add-collection-form--wrapper @(_addCollectionShown ? "show" : string.Empty)">
+        @if (_addCollectionShown)
+        {
+            <AddCollectionForm />   
+        }
     </div>
 </div>
