@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KKLauncher.Web.Client", "KK
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KKLauncher.Web.Contracts", "KKLauncher.Web.Contracts\KKLauncher.Web.Contracts.csproj", "{D1B8DDB6-28CF-409A-A92A-825995AD67C9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KKLauncher.DB", "KKLauncher.DB", "{3C5CA7E9-1878-49D3-889C-CAC4ED6E8820}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KKLauncher.DB", "..\KKLauncher.DB\KKLauncher.DB.csproj", "{37F77EF9-7F74-4528-9454-DF9799078BBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +31,16 @@ Global
 		{D1B8DDB6-28CF-409A-A92A-825995AD67C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1B8DDB6-28CF-409A-A92A-825995AD67C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1B8DDB6-28CF-409A-A92A-825995AD67C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37F77EF9-7F74-4528-9454-DF9799078BBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37F77EF9-7F74-4528-9454-DF9799078BBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37F77EF9-7F74-4528-9454-DF9799078BBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37F77EF9-7F74-4528-9454-DF9799078BBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37F77EF9-7F74-4528-9454-DF9799078BBF} = {3C5CA7E9-1878-49D3-889C-CAC4ED6E8820}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C13A4DA7-93CE-465A-97BD-21C8086CE536}
