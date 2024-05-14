@@ -1,0 +1,32 @@
+﻿<div class="app-main--wrapper">
+    @if (App != null)
+    {
+        <div class="app-name">
+            @App.Name
+        </div>
+        <div class="app-image--wrapper">
+            @if(App.Image.Length == 0)
+            {
+                <p>IMAGE NOT FOUND!</p>
+            }
+            else
+            {
+                <img class="app-image" src="icons/app/app-default-1.png" />
+            }
+        </div>
+        <div class="app-actions--wrapper">
+            <button class="app-action" onclick="@Start">
+                <img class="start-btn-image" src="icons/start.png" />
+            </button>
+            <button class="app-action" onclick="@StartWithSteam">
+                <img class="start-with-steam-btn-image" src="icons/start_with_steam.png" />
+            </button>
+            <button class="app-action" onclick="@Edit">
+                <img class="edit-btn-image" src="icons/edit.png" />
+            </button>
+            <button class="app-action" onclick="@Delete">
+                <img class="delete-btn-image" src="icons/delete.png" />
+            </button>
+        </div>
+    }
+</div>

@@ -1,0 +1,55 @@
+﻿@using KKLauncher.Web.Contracts.Apps;
+
+@inject ComponentBus _bus
+
+@implements IDisposable
+
+<div class="add-app-form">
+    @if (_show)
+    {
+        <EditForm EditContext="_editContext" OnValidSubmit="ValidSubmit" class="add-app-main--wrapper" style="height: 100%;">
+            <div class="left-inputs--wrapper">
+                <div class="app-name">
+                    <label for="app-name-input">Name:</label>
+                    <InputText class="app-name-input-s" id="app-name-input" @bind-Value="_app!.Name" />
+                    <div class="validation-error-message">
+                        <ValidationMessage For="() => _app!.Name" />
+                    </div>
+                </div>
+                <div class="app-path">
+                    <div class="label-with-faq-wrapper">
+                        <label for="app-steam-id-input">Path:</label>
+                        <div class="faq-tt tooltip-path">
+                            <img class="info-icon" src="icons/info.png" />
+                            <span class="tooltiptext-path">Use CTRL+C and CTRL+V. No "Browse".</span>
+                        </div>
+                    </div>
+                    <InputText class="app-path-input-s" id="app-path-input" @bind-Value="_app!.Path" />
+                    <div class="validation-error-message">
+                        <ValidationMessage class="validation-error-message" For="() => _app!.Path" />
+                    </div>
+                </div>
+                <div class="app-steam-id">
+                    <div class="label-with-faq-wrapper">
+                        <label for="app-steam-id-input">SteamID:</label>
+                        <div class="faq-tt tooltip-steam-id">
+                            <img class="info-icon" src="icons/info.png" />
+                            <span class="tooltiptext-steam-id">Config Steam application ID to start application via Steam. You can find out Steam application ID here -> https://steamdb.info/apps/</span>
+                        </div>
+                    </div>
+                    <InputText class="app-steam-id-input-s" id="app-steam-id-input" @bind-Value="_app!.SteamId" />
+                    <div class="validation-error-message">
+                        <ValidationMessage class="validation-error-message" For="() => _app!.SteamId" />
+                    </div>
+                </div>
+                <div class="form-action-buttons--wrapper">
+                    <button class="create-action-button" type="submit">Create</button>
+                    <button class="cancel-action-button" type="button" @onclick="Cancel">Cancel</button>
+                </div>
+            </div>
+            <div class="right-inputs--wrapper">
+                <AppImageSelectForm @ref="@_appImageSelectForm" />
+            </div>
+        </EditForm>
+    }
+</div>

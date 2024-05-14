@@ -1,0 +1,122 @@
+﻿.add-app-form {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    color: #2F4858;
+    font-weight: 800;
+}
+
+::deep .add-app-main--wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.left-inputs--wrapper {
+    width: 200px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.app-name, .app-path, .app-steam-id {
+    display: flex;
+    flex-direction: column;
+}
+
+::deep .app-name-input-s, ::deep .app-path-input-s, ::deep .app-steam-id-input-s {
+    border: 1px solid #2F4858;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 20px;
+    line-height: 20px;
+    background-color: #E8F3F1;
+}
+
+.validation-error-message {
+    width: 100%;
+    color: #A72828;
+    font-size: 16px;
+    font-weight: 800;
+    height: 20px;
+}
+
+.label-with-faq-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq-tt {
+    width: 15px;
+    height: 15px;
+}
+
+.info-icon {
+    width: 100%;
+    height: 100%;
+}
+
+.tooltip-steam-id, .tooltip-path {
+    position: relative;
+}
+
+    .tooltip-path .tooltiptext-path, .tooltip-steam-id .tooltiptext-steam-id {
+        visibility: hidden;
+        width: 280px;
+        background-color: #2F4858;
+        color: #E8F3F1;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 400;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .tooltip-path .tooltiptext-path {
+        top: -30px;
+        left: -200px;
+    }
+
+    .tooltip-steam-id .tooltiptext-steam-id {
+        top: -80px;
+        left: -200px;
+    }
+
+    .tooltip-path:hover .tooltiptext-path, .tooltip-steam-id:hover .tooltiptext-steam-id {
+        visibility: visible;
+    }
+
+.form-action-buttons--wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.create-action-button, .cancel-action-button {
+    background-color: #108DA0;
+    border: none;
+    width: 80px;
+    height: 30px;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #E8F3F1;
+}
+
+    .create-action-button:hover, .cancel-action-button:hover {
+        animation: hover_form_action_button 50ms ease-out forwards;
+    }
+
+    .create-action-button:active, .cancel-action-button:active {
+        animation: active_form_action_button 50ms ease-out forwards;
+    }
+
+.right-inputs--wrapper {
+    width: 250px;
+}

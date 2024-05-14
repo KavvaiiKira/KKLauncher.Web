@@ -1,0 +1,11 @@
+﻿{
+	"ConnectionString": "Host=localhost; Port=5432; User Id=kk-launcher; Password=kk-l; Database=kkdb; Enlist=true; Include Error Detail=true; options=-c standard_conforming_strings=on",
+	"LogLevel": "Trace",
+	"SizeLimit": 1048576,
+	"TimeLimit": 86400,
+	"AllowedHosts": "*",
+	"Ports": {
+		"Https": "7168",
+		"Http": "5212"
+	}
+}

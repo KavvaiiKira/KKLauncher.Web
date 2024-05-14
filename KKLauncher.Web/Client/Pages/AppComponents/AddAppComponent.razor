@@ -1,0 +1,15 @@
+﻿@inject ComponentBus _bus
+
+@implements IDisposable
+
+<div class="add-app-main--wrapper @(_addAppShown ? "add-app-active" : string.Empty)">
+    <div class="add-app-img--wrapper">
+        <img class="add-app-img" src="icons/plus.png" @onclick="ShowAddAppForm" />
+    </div>
+    <div class="add-app-form--wrapper @(_addAppShown ? "show" : string.Empty)">
+        @if (_addAppShown)
+        {
+            <AddAppForm />
+        }
+    </div>
+</div>

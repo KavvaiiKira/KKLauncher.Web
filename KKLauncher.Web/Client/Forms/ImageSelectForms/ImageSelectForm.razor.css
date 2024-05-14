@@ -1,0 +1,95 @@
+﻿.image-selector-main--wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.app-image-text-dots {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.app-image-wrapper {
+    width: 140px;
+    height: 140px;
+    position: relative;
+    border: 5px solid #108DA0;
+    margin-bottom: 10px;
+}
+
+.app-selected-image {
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.folowing-select-text {
+    height: 20px;
+    line-height: 20px;
+    width: 172px;
+}
+
+.select-images {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 5px solid #108DA0;
+}
+
+.select-images-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.app-image {
+    padding: 10px;
+    width: 25px;
+    height: 25px;
+}
+
+    .app-image.selected {
+        background-color: #108DA0;
+    }
+
+    .app-image:hover {
+        background-color: #00D9CC;
+    }
+
+.browse-action--wrapper {
+    width: 172px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.browse-text {
+    height: 30px;
+    line-height: 30px;
+}
+
+.browse-image-button {
+    background-color: #108DA0;
+    border: none;
+    width: 80px;
+    height: 30px;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #E8F3F1;
+}
+
+    .browse-image-button:hover {
+        animation: hover_form_action_button 50ms ease-out forwards;
+    }
+
+    .browse-image-button:active {
+        animation: active_form_action_button 50ms ease-out forwards;
+    }

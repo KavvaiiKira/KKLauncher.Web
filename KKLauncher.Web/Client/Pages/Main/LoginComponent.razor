@@ -1,0 +1,30 @@
+﻿@page "/login"
+
+@inject ILoginService _loginService
+@inject ILocalStorageService _localStorageService
+@inject NavigationManager _navigationManager
+
+<div class="main-login">
+    <div class="login--wrapper">
+        <div class="logo">
+            <img class="kk-logo" src="icons/logo.png" draggable="false" />
+        </div>
+        <div class="data-inputs--wrapper" @onkeydown="@OnKeyDown">
+            <div class="login-inputs">
+                <div class="login-ip">
+                    <label for="pc-ip-input-i">IP:</label>
+                    <input type="text" class="pc-ip-input" value="@_ip" id="pc-ip-input-i" @oninput="@OnIpInput" />
+                </div>
+                <div class="login-pas">
+                    <label for="pc-password-input-i">Password:</label>
+                    <input type="password" class="pc-password-input" id="pc-password-input-i" @oninput="@OnPasswordInput" />
+                </div>
+                <div class="errors-area">
+                    <p class="errors-text">
+                        @_errors
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

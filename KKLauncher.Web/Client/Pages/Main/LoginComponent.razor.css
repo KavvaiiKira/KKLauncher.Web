@@ -1,0 +1,66 @@
+﻿.logo {
+    height: 400px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.logo, .data-inputs--wrapper, .errors-area {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.errors-area {
+    width: 200px;
+}
+
+.errors-text {
+    font-family: "Exo 2", sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #D91616;
+    width: 100%;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.login-inputs {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.login-ip, .login-pas {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-ip > label, .login-pas > label {
+    font-family: "Exo 2", sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #E8F3F1;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.pc-ip-input, .pc-password-input {
+    border: 1px solid #2F4858;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 20px;
+    line-height: 20px;
+    background-color: #E8F3F1;
+}
+
+    .pc-ip-input:focus, .pc-password-input:focus {
+        outline: none;
+    }

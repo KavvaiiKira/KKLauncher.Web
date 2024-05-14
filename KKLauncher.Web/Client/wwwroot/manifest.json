@@ -1,0 +1,9 @@
+{
+  "name": "KKLauncher",
+  "short_name": "KKLauncher",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#03173d",
+  "prefer_related_applications": false
+}

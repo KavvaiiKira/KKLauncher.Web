@@ -1,0 +1,20 @@
+﻿@inject ComponentBus _bus
+
+<div class="main-navigation--wrapper">
+    <div class="navigation">
+        <div class="logo-with-menu">
+            <div class="kk-logo--wprapper">
+                <img class="kk-logo" src="icons/logo.png" />
+            </div>
+            <div class="menu-item" @onclick="@ApplicationsSelectionChanged">
+                APPLICATIONS
+            </div>
+            <div class="menu-item" @onclick="@CollectionsSelectionChanged">
+                COLLECTIONS
+            </div>
+        </div>
+        <div class="navigation--footer">
+            <NavigationFooter />
+        </div>
+    </div>
+</div>

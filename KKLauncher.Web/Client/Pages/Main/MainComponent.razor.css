@@ -1,0 +1,42 @@
+﻿.main {
+    width: 100%;
+    height: 100%;
+}
+
+.main--wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.left-component--wrapper {
+    width: 300px;
+    background-color: #2B697F;
+}
+
+.right-component--wrapper {
+    width: 100%;
+    background-color: #2F4858;
+    min-height: 100vh;
+}
+
+.center-header {
+    top: 0;
+    left: 0;
+    position: sticky;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 40px;
+    background-color: #108DA0;
+    color: #E8F3F1;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1;
+}
+
+.dynamic-component--wrapper {
+    width: 100%;
+}

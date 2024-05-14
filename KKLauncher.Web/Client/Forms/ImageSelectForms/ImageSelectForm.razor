@@ -1,0 +1,41 @@
+﻿<div class="image-selector-main--wrapper">
+    <div class="app-image-text-dots">Image</div>
+    <div class="app-image-wrapper">
+        @if (_sixImagesReady)
+        {
+            <img class="app-selected-image" src="icons/app/@(ImagesWithKeys[_selectedImageIndex])" />
+        }
+    </div>
+    @if (_sixImagesReady)
+    {
+        <div class="folowing-select-text">Select from following:</div>
+        <div class="select-images">
+            <div class="select-images-row">
+                <img class="app-image @(_selectedImageIndex == 0 ? "selected" : string.Empty)"
+                     @onclick="@(() => ImageSelectionChanged(0))"
+                     src="icons/app/app-default-1.png" />
+                <img class="app-image @(_selectedImageIndex == 1 ? "selected" : string.Empty)"
+                     @onclick="@(() => ImageSelectionChanged(1))"
+                     src="icons/app/app-default-2.png" />
+                <img class="app-image @(_selectedImageIndex == 2 ? "selected" : string.Empty)"
+                     @onclick="@(() => ImageSelectionChanged(2))"
+                     src="icons/app/app-default-3.png" />
+            </div>
+            <div class="select-images-row">
+                <img class="app-image @(_selectedImageIndex == 3 ? "selected" : string.Empty)"
+                     @onclick="@(() => ImageSelectionChanged(3))"
+                     src="icons/app/app-default-4.png" />
+                <img class="app-image @(_selectedImageIndex == 4 ? "selected" : string.Empty)"
+                     @onclick="@(() => ImageSelectionChanged(4))"
+                     src="icons/app/app-default-5.png" />
+                <img class="app-image @(_selectedImageIndex == 5 ? "selected" : string.Empty)"
+                     @onclick="@(() => ImageSelectionChanged(5))"
+                     src="icons/app/app-default-6.png" />
+            </div>
+        </div>
+    }
+    <div class="browse-action--wrapper">
+        <span class="browse-text">@(_sixImagesReady ? "Or browse" : "Browse"):</span>
+        <button class="browse-image-button" type="button" @onclick="@BrowseImage">Browse</button>
+    </div>
+</div>

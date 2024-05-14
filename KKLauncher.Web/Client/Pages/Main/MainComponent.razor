@@ -1,0 +1,23 @@
+﻿@inject IDynamicComponentFactory _dynamicComponentFactory
+@inject ComponentBus _bus
+
+@implements IDisposable
+
+<div class="main">
+    <div class="main--wrapper">
+        <div class="left-component--wrapper">
+            <NavigationMenu />
+        </div>
+        <div class="right-component--wrapper">
+            <div class="center-header">
+                @(string.IsNullOrEmpty(_centerHeader) ? "KKLauncher" : @_centerHeader)
+            </div>
+            <div class="dynamic-component--wrapper">
+                @if (_selectedComponentType != null && _selectedComponentParameters != null)
+                {
+                    <DynamicComponent Type="@_selectedComponentType" Parameters="@_selectedComponentParameters" />
+                }
+            </div>
+        </div>
+    </div>
+</div>

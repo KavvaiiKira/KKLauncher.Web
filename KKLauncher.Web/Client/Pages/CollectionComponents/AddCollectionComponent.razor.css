@@ -1,0 +1,33 @@
+﻿.add-collection-main--wrapper {
+    border: 8px solid #2B697F;
+    width: 250px;
+    height: 380px;
+    background-color: #00B3BB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3px;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    .add-collection-main--wrapper:hover {
+        animation: hover_add_center_item 50ms ease-in-out forwards;
+    }
+
+.add-collection-img--wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.add-collection-img {
+    width: 80px;
+    height: 80px;
+}
+
+    .add-collection-img:active {
+        animation: active_add_center_item_image 200ms ease-in-out forwards;
+    }

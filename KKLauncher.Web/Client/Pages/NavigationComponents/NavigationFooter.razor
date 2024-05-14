@@ -1,0 +1,22 @@
+﻿@inject ILocalStorageService _localStorageService
+@inject NavigationManager _navigationManager
+
+<div class="footer-main">
+    <div class="footer-images--wrapper">
+        <div class="footer-image" @onclick="ShowScenarionForm">
+            <img class="scenario-image @(_scenarioFormShown ? "show" : string.Empty)" src="icons/nav-footer/scenario.png" @onclick="ShowScenarionForm" />
+            <div class="scenario-form--wrapper @(_scenarioFormShown ? "show" : string.Empty)">
+                <ScenarioForm />
+            </div>
+        </div>
+        <div class="footer-image" @onclick="ShowSettingsForm">
+            <img class="settings-image @(_settingsFormShown ? "show" : string.Empty)" src="icons/nav-footer/settings.png" @onclick="ShowSettingsForm" />
+            <div class="settings-form--wrapper @(_settingsFormShown ? "show" : string.Empty)">
+                <SettingsForm />
+            </div>
+        </div>
+        <div class="footer-image" @onclick="LogOut">
+            <img class="logout-image" src="icons/nav-footer/logout.png" @onclick="LogOut" />
+        </div>
+    </div>
+</div>

@@ -1,0 +1,113 @@
+﻿.app-main--wrapper {
+    border: 8px solid #2B697F;
+    width: 250px;
+    height: 380px;
+    background-color: #00B3BB;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 3px;
+}
+
+    .app-main--wrapper:hover {
+        animation: hover_app_item 50ms ease-in-out forwards;
+    }
+
+        .app-main--wrapper:hover > .app-actions--wrapper {
+            top: 0;
+        }
+
+.app-name {
+    width: 100%;
+    text-align: center;
+    color: #E8F3F1;
+    font-size: 25px;
+    font-weight: 800;
+    height: 50px;
+    line-height: 50px;
+}
+
+.app-image--wrapper {
+    padding-top: 50px;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.app-image {
+    width: 150px;
+    height: 150px;
+}
+
+.app-actions--wrapper {
+    height: 60px;
+    align-self: flex-start;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #108DA0;
+    transition: all 200ms ease-out;
+    position: relative;
+    top: 100%;
+}
+
+.app-action {
+    width: 100%;
+    height: 60px;
+    background: none;
+    border: none;
+}
+
+    .app-action:hover {
+        cursor: pointer;
+        background-color: #00B3BB;
+    }
+
+    .app-action:active > .start-btn-image {
+        animation: active_app_action 50ms ease-in-out forwards;
+    }
+
+    .app-action:active > .start-with-steam-btn-image {
+        animation: active_app_action 50ms ease-in-out forwards;
+    }
+
+    .app-action:active > .edit-btn-image {
+        animation: active_app_action 50ms ease-in-out forwards;
+    }
+
+    .app-action:active > .delete-btn-image {
+        animation: active_app_action 50ms ease-in-out forwards;
+    }
+
+.start-btn-image {
+    width: 40px;
+    height: 40px;
+}
+
+.start-with-steam-btn-image {
+    width: 40px;
+    height: 40px;
+}
+
+.edit-btn-image {
+    width: 40px;
+    height: 40px;
+}
+
+.delete-btn-image {
+    width: 40px;
+    height: 40px;
+}
+
+@keyframes active_app_action {
+    to {
+        width: 30px;
+        height: 30px;
+    }
+}

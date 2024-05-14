@@ -1,0 +1,45 @@
+﻿.collection-main--wrapper {
+    border: 8px solid #2B697F;
+    width: 250px;
+    height: 380px;
+    background-color: #00B3BB;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 3px;
+}
+
+    .collection-main--wrapper:hover {
+        animation: hover_collection_item 50ms ease-in-out forwards;
+    }
+
+    .collection-main--wrapper:active {
+        animation: active_collection_item 50ms ease-in-out forwards;
+    }
+
+.collection-name {
+    width: 100%;
+    text-align: center;
+    color: #E8F3F1;
+    font-size: 25px;
+    font-weight: 800;
+    height: 50px;
+    line-height: 50px;
+}
+
+.collection-image--wrapper {
+    padding-top: 50px;
+    height: 220px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.collection-image {
+    width: 150px;
+    height: 150px;
+}

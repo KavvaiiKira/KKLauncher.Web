@@ -1,0 +1,12 @@
+﻿@page "/"
+
+<PageTitle>KKLauncher</PageTitle>
+
+<AuthorizeView>
+    <Authorized>
+        <MainComponent />
+    </Authorized>
+    <NotAuthorized>
+        <LoginRedirect />
+    </NotAuthorized>
+</AuthorizeView>
