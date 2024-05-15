@@ -68,7 +68,11 @@
         background-color: #2F4858;
     }
 
-    .app-action:hover {
+        .app-action.disabled-action:hover {
+            cursor: not-allowed;
+        }
+
+    .app-action:not(.disabled-action):hover {
         cursor: pointer;
         background-color: #00B3BB;
     }
@@ -77,7 +81,7 @@
         animation: active_app_action 50ms ease-in-out forwards;
     }
 
-    .app-action:active > .start-with-steam-btn-image {
+    .app-action:not(.disabled-action):active > .start-with-steam-btn-image {
         animation: active_app_action 50ms ease-in-out forwards;
     }
 
