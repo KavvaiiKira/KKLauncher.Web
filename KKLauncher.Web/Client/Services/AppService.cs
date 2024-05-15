@@ -25,8 +25,14 @@ namespace KKLauncher.Web.Client.Services
 
         public async Task<IEnumerable<AppViewDto>> GetAppsByPCLocalIpAsync(string pcLocalIp)
         {
-            var res = await _httpClient.GetFromJsonAsync<IEnumerable<AppViewDto>>($"{_baseUri}/pcapps/{pcLocalIp}");
+            var res = await _httpClient.GetFromJsonAsync<IEnumerable<AppViewDto>>($"{_baseUri}pcapps/{pcLocalIp}");
             return res ?? Enumerable.Empty<AppViewDto>();
+        }
+
+        public async Task<AppViewDto?> GetAppViewByIdAsync(Guid appId)
+        {
+            var res = await _httpClient.GetFromJsonAsync<AppViewDto>($"{_baseUri}appview/{appId}");
+            return res;
         }
     }
 }

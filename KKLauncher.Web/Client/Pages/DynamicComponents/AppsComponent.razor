@@ -1,18 +1,22 @@
-﻿<div class="items--wrapper">
-    @if (apps != null && apps.Any())
+﻿@inject ILocalStorageService _localStorageService
+@inject IAppService _appService
+@inject ComponentBus _bus
+
+@implements IDisposable
+
+<div class="items--wrapper">
+    @if (_apps != null && _apps.Any())
     {
-        for (int i = 0; i < apps.Count; i++)
+        for (int i = 0; i < _apps.Count; i++)
         {
             if (i == 0)
             {
                 <AddAppComponent />
             }
-            else
-            {
-                var app = apps[i];
 
-                <AppPageComponent App="@app" />
-            }
+            var app = _apps[i];
+
+            <AppPageComponent App="@app" />
         }
     }
     else

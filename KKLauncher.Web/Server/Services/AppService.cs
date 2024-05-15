@@ -51,5 +51,14 @@ namespace KKLauncher.Web.Server.Services
 
             return appEntities.Select(_mapper.Map<AppViewDto>);
         }
+
+        public async Task<AppViewDto> GetAppViewByIdAsync(Guid appId)
+        {
+            var appEntity = await _appRepository.FirstOrDefaultAsync(a => a.Id == appId);
+
+            return appEntity != null ?
+                _mapper.Map<AppViewDto>(appEntity) :
+                throw new ArgumentNullException($"Application with ID: {appId} not found!");
+        }
     }
 }

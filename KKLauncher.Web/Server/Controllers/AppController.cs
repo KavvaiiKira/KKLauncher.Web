@@ -29,7 +29,7 @@ namespace KKLauncher.Web.Server.Controllers
         }
 
         [HttpGet("pcapps/{localIp}")]
-        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<AppViewDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetApplicationsByPCLocalIpAsync(string localIp)
         {
             if (string.IsNullOrEmpty(localIp))
@@ -38,6 +38,20 @@ namespace KKLauncher.Web.Server.Controllers
             }
 
             var res = await _appService.GetApplicationsByPCLocalIpAsync(localIp);
+
+            return Ok(res);
+        }
+
+        [HttpGet("appview/{id}")]
+        [ProducesResponseType(typeof(AppViewDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAppViewByIdAsync(string id)
+        {
+            if (!Guid.TryParse(id, out var appId))
+            {
+                return BadRequest("Application ID must be GUID!");
+            }
+
+            var res = await _appService.GetAppViewByIdAsync(appId);
 
             return Ok(res);
         }

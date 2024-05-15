@@ -1,6 +1,7 @@
 ﻿using KKLauncher.Web.Client.Constants;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.JSInterop;
+using System.IO;
 
 namespace KKLauncher.Web.Client.Forms.ImageSelectForms
 {
@@ -58,7 +59,7 @@ namespace KKLauncher.Web.Client.Forms.ImageSelectForms
                 return;
             }
 
-            var fileExtension = fileName.Split('.').Last();
+            var fileExtension = fileName.Split('.').Last().ToLower();
             if (!AllowedFileExtensionConstants.AllowedAppImageExtensions.Contains(fileExtension))
             {
                 //TODO: Toasts

@@ -71,8 +71,15 @@ namespace KKLauncher.Web.Client.Forms
             _app.Image = await _appImageSelectForm!.GetImage();
             _app.PCLocalIp = loginToken.LoginIp;
 
-            //TODO: Toasts
-            await _appService.AddAppAsync(_app);
+            if (!await _appService.AddAppAsync(_app))
+            {
+                //TODO: Toasts
+                return;
+            }
+
+            await Cancel();
+
+            await _bus.Publish(new AppAddedEvent(_app.Id));
         }
 
         private async Task Cancel()
