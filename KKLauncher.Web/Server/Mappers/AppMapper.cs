@@ -10,6 +10,10 @@ namespace KKLauncher.Web.Server.Mappers
         {
             CreateMap<AppEntity, AppDto>();
             CreateMap<AppDto, AppEntity>();
+
+            CreateMap<AppEntity, AppViewDto>()
+                 .ForMember(a => a.IsSteamStartAvailable,
+                    opts => opts.MapFrom(a => !string.IsNullOrEmpty(a.SteamId)));
         }
     }
 }

@@ -22,5 +22,11 @@ namespace KKLauncher.Web.Client.Services
                 await res.Content.ReadFromJsonAsync<bool>() :
                 false;
         }
+
+        public async Task<IEnumerable<AppViewDto>> GetAppsByPCLocalIpAsync(string pcLocalIp)
+        {
+            var res = await _httpClient.GetFromJsonAsync<IEnumerable<AppViewDto>>($"{_baseUri}/pcapps/{pcLocalIp}");
+            return res ?? Enumerable.Empty<AppViewDto>();
+        }
     }
 }

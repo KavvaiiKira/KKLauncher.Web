@@ -2,6 +2,7 @@
 using KKLauncher.DB.Entities;
 using KKLauncher.Web.Contracts.Apps;
 using KKLauncher.Web.Server.Repositories.Base;
+using Microsoft.EntityFrameworkCore;
 
 namespace KKLauncher.Web.Server.Services
 {
@@ -36,6 +37,19 @@ namespace KKLauncher.Web.Server.Services
             await _appRepository.AddAsync(appEntity);
 
             return true;
+        }
+
+        public async Task<IEnumerable<AppViewDto>> GetApplicationsByPCLocalIpAsync(string pcLocalIp)
+        {
+            var pcEntity = await _pcRepository.FirstOrDefaultAsync(pc => pc.LocalIp == pcLocalIp);
+            if (pcEntity == null)
+            {
+                throw new ArgumentNullException($"PC with local IP: {pcLocalIp} not found!");
+            }
+
+            var appEntities = await _appRepository.GetAll().Where(a => a.PCId == pcEntity.Id).ToListAsync();
+
+            return appEntities.Select(_mapper.Map<AppViewDto>);
         }
     }
 }

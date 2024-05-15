@@ -5,13 +5,13 @@
             @App.Name
         </div>
         <div class="app-image--wrapper">
-            @if(App.Image.Length == 0)
+            @if (string.IsNullOrEmpty(_appImageUrl))
             {
                 <p>IMAGE NOT FOUND!</p>
             }
             else
             {
-                <img class="app-image" src="icons/app/app-default-1.png" />
+                <img class="app-image" src="@_appImageUrl" />
             }
         </div>
         <div class="app-actions--wrapper">

@@ -5,5 +5,7 @@ namespace KKLauncher.Web.Server.Services
     public interface IAppService
     {
         Task<bool> AddAppAsync(AppDto app);
+
+        Task<IEnumerable<AppViewDto>> GetApplicationsByPCLocalIpAsync(string pcLocalIp);
     }
 }

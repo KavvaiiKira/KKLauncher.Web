@@ -27,5 +27,19 @@ namespace KKLauncher.Web.Server.Controllers
 
             return Ok(res);
         }
+
+        [HttpGet("pcapps/{localIp}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetApplicationsByPCLocalIpAsync(string localIp)
+        {
+            if (string.IsNullOrEmpty(localIp))
+            {
+                return BadRequest("Requst BODY must not be NULL!");
+            }
+
+            var res = await _appService.GetApplicationsByPCLocalIpAsync(localIp);
+
+            return Ok(res);
+        }
     }
 }

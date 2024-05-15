@@ -1,9 +1,14 @@
 ﻿@inject HttpClient _httpClient
+@inject IJSRuntime _jsRuntime
 
 <div class="image-selector-main--wrapper">
     <div class="app-image-text-dots">Image</div>
     <div class="app-image-wrapper">
-        @if (_sixImagesReady)
+        @if (!string.IsNullOrEmpty(_uploadedImageUrl))
+        {
+            <img class="app-selected-image" src="@_uploadedImageUrl" />
+        }
+        else if (_sixImagesReady)
         {
             <img class="app-selected-image" src="icons/app/@(ImagesWithKeys[_selectedImageIndex])" />
         }
@@ -38,6 +43,7 @@
     }
     <div class="browse-action--wrapper">
         <span class="browse-text">@(_sixImagesReady ? "Or browse" : "Browse"):</span>
-        <button class="browse-image-button" type="button" @onclick="@BrowseImage">Browse</button>
+        <InputFile id="import-btn" style="display: none" accept=".png,.jpg,.jpeg" OnChange="UploadedImageChanged" />
+        <button class="browse-image-button" type="button" @onclick="BrowseImage">Browse</button>
     </div>
 </div>

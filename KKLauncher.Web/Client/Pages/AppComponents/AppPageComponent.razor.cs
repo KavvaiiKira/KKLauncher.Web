@@ -8,6 +8,19 @@ namespace KKLauncher.Web.Client.Pages.AppComponents
         [Parameter]
         public AppViewDto? App { get; set; }
 
+        private string _appImageUrl = string.Empty;
+
+        protected override void OnParametersSet()
+        {
+            if (App == null || App.Image.Length == 0)
+            {
+                return;
+            }
+
+            var imagesrc = Convert.ToBase64String(App.Image);
+            _appImageUrl = string.Format("data:image/jpeg;base64,{0}", imagesrc);
+        }
+
         private async Task Start()
         {
 
