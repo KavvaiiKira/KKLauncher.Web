@@ -18,7 +18,7 @@ namespace KKLauncher.Web.Client.Pages.AppComponents
             }
 
             var imagesrc = Convert.ToBase64String(App.Image);
-            _appImageUrl = string.Format("data:image/jpeg;base64,{0}", imagesrc);
+            _appImageUrl = string.Format("data:image/png;base64,{0}", imagesrc);
         }
 
         private async Task Start()

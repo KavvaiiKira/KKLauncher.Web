@@ -1,7 +1,6 @@
 ﻿using KKLauncher.Web.Client.Constants;
 using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.JSInterop;
-using System.IO;
 
 namespace KKLauncher.Web.Client.Forms.ImageSelectForms
 {
@@ -96,7 +95,7 @@ namespace KKLauncher.Web.Client.Forms.ImageSelectForms
                 return _uploadedImage;
             }
 
-            var imagePath = Path.Combine("wwwroot", "icons", "app", ImagesWithKeys[_selectedImageIndex]);
+            var imagePath = Path.Combine("icons", "app", ImagesWithKeys[_selectedImageIndex]);
 
             return await _httpClient.GetByteArrayAsync(imagePath);
         }
