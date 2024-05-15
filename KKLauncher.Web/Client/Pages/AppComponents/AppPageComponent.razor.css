@@ -64,6 +64,10 @@
     border: none;
 }
 
+    .app-action.disabled-action {
+        background-color: #2F4858;
+    }
+
     .app-action:hover {
         cursor: pointer;
         background-color: #00B3BB;

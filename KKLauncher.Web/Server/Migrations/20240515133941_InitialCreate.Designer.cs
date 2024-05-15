@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KKLauncher.Web.Server.Migrations
 {
     [DbContext(typeof(KKLauncherDbContext))]
-    [Migration("20240514120248_InitialCreate")]
+    [Migration("20240515133941_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -69,7 +69,6 @@ namespace KKLauncher.Web.Server.Migrations
                         .HasColumnName("Path");
 
                     b.Property<string>("SteamId")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("SteamId");
 
@@ -131,7 +130,6 @@ namespace KKLauncher.Web.Server.Migrations
                         .HasColumnName("Password");
 
                     b.Property<string>("SteamPath")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("SteamPath");
 

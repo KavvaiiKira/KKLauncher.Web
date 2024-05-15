@@ -13,11 +13,13 @@ namespace KKLauncher.Web.Server.EfCore.EntityConfigurations
 
             builder
                 .Property(ac => ac.AppId)
-                .HasColumnName(DbConstants.Fields.APPID);
+                .HasColumnName(DbConstants.Fields.APPID)
+                .IsRequired(true);
 
             builder
                 .Property(ac => ac.CollectionId)
-                .HasColumnName(DbConstants.Fields.COLLECTIONID);
+                .HasColumnName(DbConstants.Fields.COLLECTIONID)
+                .IsRequired(true);
         }
     }
 }

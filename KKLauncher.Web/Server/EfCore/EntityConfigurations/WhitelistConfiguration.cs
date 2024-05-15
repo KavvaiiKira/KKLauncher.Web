@@ -16,11 +16,13 @@ namespace KKLauncher.Web.Server.EfCore.EntityConfigurations
 
             builder
                 .Property(a => a.Id)
-                .HasColumnName(DbConstants.Fields.ID);
+                .HasColumnName(DbConstants.Fields.ID)
+                .IsRequired(true);
 
             builder
                 .Property(a => a.TelegramId)
-                .HasColumnName(DbConstants.Fields.TELEGRAMID);
+                .HasColumnName(DbConstants.Fields.TELEGRAMID)
+                .IsRequired(true);
         }
     }
 }

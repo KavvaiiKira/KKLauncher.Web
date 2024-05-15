@@ -16,19 +16,23 @@ namespace KKLauncher.Web.Server.EfCore.EntityConfigurations
 
             builder
                 .Property(c => c.Id)
-                .HasColumnName(DbConstants.Fields.ID);
+                .HasColumnName(DbConstants.Fields.ID)
+                .IsRequired(true);
 
             builder
                 .Property(c => c.Name)
-                .HasColumnName(DbConstants.Fields.NAME);
+                .HasColumnName(DbConstants.Fields.NAME)
+                .IsRequired(true);
 
             builder
                 .Property(c => c.Image)
-                .HasColumnName(DbConstants.Fields.IMAGE);
+                .HasColumnName(DbConstants.Fields.IMAGE)
+                .IsRequired(true);
 
             builder
                 .Property(c => c.PCId)
-                .HasColumnName(DbConstants.Fields.PCID);
+                .HasColumnName(DbConstants.Fields.PCID)
+                .IsRequired(true);
 
             builder
                 .HasOne(c => c.PC)

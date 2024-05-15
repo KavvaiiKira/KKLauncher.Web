@@ -18,7 +18,7 @@
             <button class="app-action" onclick="@Start">
                 <img class="start-btn-image" src="icons/start.png" />
             </button>
-            <button class="app-action" onclick="@StartWithSteam">
+            <button class="app-action @(App.IsSteamStartAvailable ? "" : "disabled-action")" onclick="@StartWithSteam">
                 <img class="start-with-steam-btn-image" src="icons/start_with_steam.png" />
             </button>
             <button class="app-action" onclick="@Edit">

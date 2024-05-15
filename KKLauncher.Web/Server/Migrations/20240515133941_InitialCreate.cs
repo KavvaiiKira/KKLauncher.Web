@@ -19,7 +19,7 @@ namespace KKLauncher.Web.Server.Migrations
                     Name = table.Column<string>(type: "text", nullable: false),
                     LocalIp = table.Column<string>(type: "text", nullable: false),
                     Password = table.Column<string>(type: "text", nullable: false),
-                    SteamPath = table.Column<string>(type: "text", nullable: false)
+                    SteamPath = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,7 +46,7 @@ namespace KKLauncher.Web.Server.Migrations
                     Name = table.Column<string>(type: "text", nullable: false),
                     Image = table.Column<byte[]>(type: "bytea", nullable: false),
                     Path = table.Column<string>(type: "text", nullable: false),
-                    SteamId = table.Column<string>(type: "text", nullable: false),
+                    SteamId = table.Column<string>(type: "text", nullable: true),
                     PCId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>

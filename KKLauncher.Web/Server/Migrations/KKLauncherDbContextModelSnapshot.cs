@@ -66,7 +66,6 @@ namespace KKLauncher.Web.Server.Migrations
                         .HasColumnName("Path");
 
                     b.Property<string>("SteamId")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("SteamId");
 
@@ -128,7 +127,6 @@ namespace KKLauncher.Web.Server.Migrations
                         .HasColumnName("Password");
 
                     b.Property<string>("SteamPath")
-                        .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("SteamPath");
 

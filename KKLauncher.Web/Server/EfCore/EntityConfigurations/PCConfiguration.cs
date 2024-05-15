@@ -16,23 +16,28 @@ namespace KKLauncher.Web.Server.EfCore.EntityConfigurations
 
             builder
                 .Property(a => a.Id)
-                .HasColumnName(DbConstants.Fields.ID);
+                .HasColumnName(DbConstants.Fields.ID)
+                .IsRequired(true);
 
             builder
                 .Property(a => a.Name)
-                .HasColumnName(DbConstants.Fields.NAME);
+                .HasColumnName(DbConstants.Fields.NAME)
+                .IsRequired(true);
 
             builder
                 .Property(a => a.LocalIp)
-                .HasColumnName(DbConstants.Fields.LOCALIP);
+                .HasColumnName(DbConstants.Fields.LOCALIP)
+                .IsRequired(true);
 
             builder
                 .Property(a => a.Password)
-                .HasColumnName(DbConstants.Fields.PASSWORD);
+                .HasColumnName(DbConstants.Fields.PASSWORD)
+                .IsRequired(true);
 
             builder
                 .Property(a => a.SteamPath)
-                .HasColumnName(DbConstants.Fields.STEAMPATH);
+                .HasColumnName(DbConstants.Fields.STEAMPATH)
+                .IsRequired(false);
         }
     }
 }
