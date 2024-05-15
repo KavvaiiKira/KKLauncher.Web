@@ -4,7 +4,7 @@
 
 <div class="add-app-main--wrapper @(_addAppShown ? "add-app-active" : string.Empty)">
     <div class="add-app-img--wrapper">
-        <img class="add-app-img" src="icons/plus.png" @onclick="ShowAddAppForm" />
+        <img class="add-app-img" src="icons/plus.png" @onclick="ShowAddAppForm" draggable="false" />
     </div>
     <div class="add-app-form--wrapper @(_addAppShown ? "show" : string.Empty)">
         @if (_addAppShown)

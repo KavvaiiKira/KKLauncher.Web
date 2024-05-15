@@ -11,21 +11,21 @@
             }
             else
             {
-                <img class="app-image" src="@_appImageUrl" />
+                <img class="app-image" src="@_appImageUrl" draggable="false" />
             }
         </div>
         <div class="app-actions--wrapper">
             <button class="app-action" onclick="@Start">
-                <img class="start-btn-image" src="icons/start.png" />
+                <img class="start-btn-image" src="icons/start.png" draggable="false" />
             </button>
             <button class="app-action @(App.IsSteamStartAvailable ? "" : "disabled-action")" onclick="@StartWithSteam">
-                <img class="start-with-steam-btn-image" src="icons/start_with_steam.png" />
+                <img class="start-with-steam-btn-image" src="icons/start_with_steam.png" draggable="false" />
             </button>
             <button class="app-action" onclick="@Edit">
-                <img class="edit-btn-image" src="icons/edit.png" />
+                <img class="edit-btn-image" src="icons/edit.png" draggable="false" />
             </button>
             <button class="app-action" onclick="@Delete">
-                <img class="delete-btn-image" src="icons/delete.png" />
+                <img class="delete-btn-image" src="icons/delete.png" draggable="false" />
             </button>
         </div>
     }

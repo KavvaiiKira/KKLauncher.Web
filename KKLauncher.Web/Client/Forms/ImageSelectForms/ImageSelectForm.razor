@@ -6,11 +6,11 @@
     <div class="app-image-wrapper">
         @if (!string.IsNullOrEmpty(_uploadedImageUrl))
         {
-            <img class="app-selected-image" src="@_uploadedImageUrl" />
+            <img class="app-selected-image" src="@_uploadedImageUrl" draggable="false" />
         }
         else if (_sixImagesReady)
         {
-            <img class="app-selected-image" src="icons/app/@(ImagesWithKeys[_selectedImageIndex])" />
+            <img class="app-selected-image" src="icons/app/@(ImagesWithKeys[_selectedImageIndex])" draggable="false" />
         }
     </div>
     @if (_sixImagesReady)
@@ -20,24 +20,30 @@
             <div class="select-images-row">
                 <img class="app-image @(_selectedImageIndex == 0 ? "selected" : string.Empty)"
                      @onclick="@(() => ImageSelectionChanged(0))"
-                     src="icons/app/app-default-1.png" />
+                     src="icons/app/app-default-1.png"
+                     draggable="false" />
                 <img class="app-image @(_selectedImageIndex == 1 ? "selected" : string.Empty)"
                      @onclick="@(() => ImageSelectionChanged(1))"
-                     src="icons/app/app-default-2.png" />
+                     src="icons/app/app-default-2.png"
+                     draggable="false" />
                 <img class="app-image @(_selectedImageIndex == 2 ? "selected" : string.Empty)"
                      @onclick="@(() => ImageSelectionChanged(2))"
-                     src="icons/app/app-default-3.png" />
+                     src="icons/app/app-default-3.png"
+                     draggable="false" />
             </div>
             <div class="select-images-row">
                 <img class="app-image @(_selectedImageIndex == 3 ? "selected" : string.Empty)"
                      @onclick="@(() => ImageSelectionChanged(3))"
-                     src="icons/app/app-default-4.png" />
+                     src="icons/app/app-default-4.png"
+                     draggable="false" />
                 <img class="app-image @(_selectedImageIndex == 4 ? "selected" : string.Empty)"
                      @onclick="@(() => ImageSelectionChanged(4))"
-                     src="icons/app/app-default-5.png" />
+                     src="icons/app/app-default-5.png"
+                     draggable="false" />
                 <img class="app-image @(_selectedImageIndex == 5 ? "selected" : string.Empty)"
                      @onclick="@(() => ImageSelectionChanged(5))"
-                     src="icons/app/app-default-6.png" />
+                     src="icons/app/app-default-6.png"
+                     draggable="false" />
             </div>
         </div>
     }
