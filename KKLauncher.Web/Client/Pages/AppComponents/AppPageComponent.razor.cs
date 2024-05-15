@@ -1,4 +1,5 @@
-﻿using KKLauncher.Web.Contracts.Apps;
+﻿using KKLauncher.Web.Client.Events;
+using KKLauncher.Web.Contracts.Apps;
 using Microsoft.AspNetCore.Components;
 
 namespace KKLauncher.Web.Client.Pages.AppComponents
@@ -38,7 +39,10 @@ namespace KKLauncher.Web.Client.Pages.AppComponents
 
         private async Task Delete()
         {
-
+            if (App != null)
+            {
+                await _bus.Publish(new AppDeletedEvent(App.Id));
+            }
         }
     }
 }

@@ -55,5 +55,19 @@ namespace KKLauncher.Web.Server.Controllers
 
             return Ok(res);
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        public async Task<IActionResult> RemoveAppAsync(string id)
+        {
+            if (!Guid.TryParse(id, out var appId))
+            {
+                return BadRequest("Application ID must be GUID!");
+            }
+
+            var res = await _appService.RemoveAppAsync(appId);
+
+            return Ok(res);
+        }
     }
 }

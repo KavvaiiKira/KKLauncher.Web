@@ -34,5 +34,14 @@ namespace KKLauncher.Web.Client.Services
             var res = await _httpClient.GetFromJsonAsync<AppViewDto>($"{_baseUri}appview/{appId}");
             return res;
         }
+
+        public async Task<bool> DeleteAppAsync(Guid appId)
+        {
+            var res = await _httpClient.DeleteAsync($"{_baseUri}{appId}");
+
+            return res.IsSuccessStatusCode ?
+                await res.Content.ReadFromJsonAsync<bool>() :
+                false;
+        }
     }
 }

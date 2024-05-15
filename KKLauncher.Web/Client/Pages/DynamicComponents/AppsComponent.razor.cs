@@ -24,6 +24,7 @@ namespace KKLauncher.Web.Client.Pages.DynamicComponents
         protected override void OnParametersSet()
         {
             _bus.Subscribe<AppAddedEvent>(AppAddedEventHandler);
+            _bus.Subscribe<AppDeletedEvent>(AppDeletedEventHandler);
         }
 
         private async Task AppAddedEventHandler(MessageArgs message, CancellationToken cancellationToken)
@@ -35,7 +36,13 @@ namespace KKLauncher.Web.Client.Pages.DynamicComponents
             }
 
             var newApp = await _appService.GetAppViewByIdAsync(eventItem.NewAppId);
-            if (newApp == null || _apps.Any(a => a.Id == newApp.Id))
+            if (newApp == null)
+            {
+                //TODO: Toasts
+                return;
+            }
+
+            if (_apps.Any(a => a.Id == newApp.Id))
             {
                 return;
             }
@@ -45,9 +52,30 @@ namespace KKLauncher.Web.Client.Pages.DynamicComponents
             StateHasChanged();
         }
 
+        private async Task AppDeletedEventHandler(MessageArgs message, CancellationToken cancellationToken)
+        {
+            var eventItem = message.GetMessage<AppDeletedEvent>();
+            if (eventItem == null)
+            {
+                return;
+            }
+
+            var deletingResul = await _appService.DeleteAppAsync(eventItem.DeletedAppId);
+            if (!deletingResul)
+            {
+                //TODO: Toasts
+                return;
+            }
+
+            _apps.RemoveAll(a => a.Id == eventItem.DeletedAppId);
+
+            StateHasChanged();
+        }
+
         public void Dispose()
         {
             _bus.UnSubscribe<AppAddedEvent>(AppAddedEventHandler);
+            _bus.UnSubscribe<AppDeletedEvent>(AppDeletedEventHandler);
         }
     }
 }
