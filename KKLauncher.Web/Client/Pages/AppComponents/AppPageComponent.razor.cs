@@ -29,7 +29,10 @@ namespace KKLauncher.Web.Client.Pages.AppComponents
 
         private async Task StartWithSteam()
         {
-
+            if (App == null || !App.IsSteamStartAvailable)
+            {
+                return;
+            }
         }
 
         private async Task Edit()

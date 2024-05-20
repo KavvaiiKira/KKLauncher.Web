@@ -18,7 +18,7 @@
     }
 
     .add-app-main--wrapper.add-app-active {
-        box-shadow: 10px 10px 10px #10212C;
+        box-shadow: 10px 10px 10px #E8F3F1;
     }
 
 .add-app-img--wrapper {
@@ -52,6 +52,6 @@
 
     .add-app-form--wrapper.show {
         width: 450px;
-        box-shadow: 10px 10px 10px #10212C;
+        box-shadow: 10px 10px 10px #E8F3F1;
         visibility: unset;
     }
