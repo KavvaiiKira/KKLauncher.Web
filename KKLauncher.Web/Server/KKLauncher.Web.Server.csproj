@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\KKLauncher.DB\KKLauncher.DB.csproj" />
     <ProjectReference Include="..\..\KKLauncher.Web.Contracts\KKLauncher.Web.Contracts.csproj" />
     <ProjectReference Include="..\Client\KKLauncher.Web.Client.csproj" />
   </ItemGroup>
