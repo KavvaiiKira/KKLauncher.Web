@@ -5,7 +5,7 @@
         public class Keys
         {
             public const string ApplicationsComponent = "APPLICATIONS_COMPONENT";
-            public const string CollectionsComponent = "COLLECTIONS_COMPONENT";
+            public const string CollectionComponent = "COLLECTION_COMPONENT";
         }
 
         public class Titles

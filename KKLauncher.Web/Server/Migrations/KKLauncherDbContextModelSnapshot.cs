@@ -83,11 +83,6 @@ namespace KKLauncher.Web.Server.Migrations
                         .HasColumnType("uuid")
                         .HasColumnName("Id");
 
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("bytea")
-                        .HasColumnName("Image");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text")

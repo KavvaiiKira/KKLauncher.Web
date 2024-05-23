@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KKLauncher.Web.Server.Migrations
 {
     [DbContext(typeof(KKLauncherDbContext))]
-    [Migration("20240515133941_InitialCreate")]
+    [Migration("20240523144056_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -85,11 +85,6 @@ namespace KKLauncher.Web.Server.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid")
                         .HasColumnName("Id");
-
-                    b.Property<byte[]>("Image")
-                        .IsRequired()
-                        .HasColumnType("bytea")
-                        .HasColumnName("Image");
 
                     b.Property<string>("Name")
                         .IsRequired()

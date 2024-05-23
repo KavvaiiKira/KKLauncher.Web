@@ -6,8 +6,6 @@
 
         public string Name { get; set; }
 
-        public byte[] Image { get; set; }
-
         public List<Guid> Apps { get; set; }
 
         public CollectionDto()
@@ -20,7 +18,6 @@
             Id = id;
             Name = name;
             Apps = apps;
-            Image = image ?? new byte[] { };
         }
     }
 }

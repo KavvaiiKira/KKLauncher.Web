@@ -25,11 +25,6 @@ namespace KKLauncher.Web.Server.EfCore.EntityConfigurations
                 .IsRequired(true);
 
             builder
-                .Property(c => c.Image)
-                .HasColumnName(DbConstants.Fields.IMAGE)
-                .IsRequired(true);
-
-            builder
                 .Property(c => c.PCId)
                 .HasColumnName(DbConstants.Fields.PCID)
                 .IsRequired(true);

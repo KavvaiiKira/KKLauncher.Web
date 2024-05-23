@@ -5,14 +5,22 @@ namespace KKLauncher.Web.Client.Pages.NavigationComponents
 {
     public partial class NavigationMenu
     {
+        private bool _addCollectionShown = false;
+
         private async Task ApplicationsSelectionChanged(EventArgs args)
         {
             await _bus.Publish(new NavigationItemChanged(ComponentConstants.Keys.ApplicationsComponent));
         }
 
-        private async Task CollectionsSelectionChanged(EventArgs args)
+        private async Task ShowAddCollectionForm()
         {
-            await _bus.Publish(new NavigationItemChanged(ComponentConstants.Keys.CollectionsComponent));
+            if (_addCollectionShown)
+            {
+                return;
+            }
+
+            _addCollectionShown = true;
+            StateHasChanged();
         }
     }
 }

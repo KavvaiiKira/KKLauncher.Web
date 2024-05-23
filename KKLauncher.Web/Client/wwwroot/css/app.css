@@ -107,23 +107,6 @@ h1:focus {
     }
 }
 
-@keyframes hover_collection_item {
-    0% {
-        transform: translateY(-1px) translateX(-1px);
-        box-shadow: 1px 1px 5px #E8F3F1;
-    }
-
-    33% {
-        transform: translateY(-3px) translateX(-3px);
-        box-shadow: 2px 2px 10px #E8F3F1;
-    }
-
-    100% {
-        transform: translateY(-5px) translateX(-5px);
-        box-shadow: 5px 5px 15px #E8F3F1;
-    }
-}
-
 @keyframes hover_form_action_button {
     0% {
         transform: translateY(-1px) translateX(-1px);

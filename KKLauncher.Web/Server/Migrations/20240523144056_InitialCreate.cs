@@ -66,7 +66,6 @@ namespace KKLauncher.Web.Server.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: false),
-                    Image = table.Column<byte[]>(type: "bytea", nullable: false),
                     PCId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>

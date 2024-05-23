@@ -19,7 +19,7 @@ namespace KKLauncher.Web.Client.Factories
                         ComponentConstants.Titles.ApplicationsTitle)
                 },
                 {
-                    ComponentConstants.Keys.CollectionsComponent,
+                    ComponentConstants.Keys.CollectionComponent,
                     new DynamicComponentData(
                         typeof(CollectionsComponent),
                         ComponentConstants.Titles.CollectionsTitle)

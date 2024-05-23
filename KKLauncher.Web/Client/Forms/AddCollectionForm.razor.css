@@ -4,6 +4,7 @@
     padding: 10px;
     color: #2F4858;
     font-weight: 800;
+    background-color: #00B3BB;
 }
 
 ::deep .add-collection-main--wrapper {
@@ -67,7 +68,3 @@
     .create-action-button:active, .cancel-action-button:active {
         animation: active_form_action_button 50ms ease-out forwards;
     }
-
-.right-inputs--wrapper {
-    width: 250px;
-}
