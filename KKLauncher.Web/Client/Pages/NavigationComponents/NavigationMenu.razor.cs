@@ -11,16 +11,5 @@ namespace KKLauncher.Web.Client.Pages.NavigationComponents
         {
             await _bus.Publish(new NavigationItemChanged(ComponentConstants.Keys.ApplicationsComponent));
         }
-
-        private async Task ShowAddCollectionForm()
-        {
-            if (_addCollectionShown)
-            {
-                return;
-            }
-
-            _addCollectionShown = true;
-            StateHasChanged();
-        }
     }
 }

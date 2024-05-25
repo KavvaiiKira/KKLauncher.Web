@@ -46,7 +46,7 @@ namespace KKLauncher.Web.Client.Forms
 
         private async Task Cancel()
         {
-            await _bus.Publish(new CloseAddAppFormEvent());
+            await _bus.Publish(new CloseAddCollectionFormEvent());
         }
 
         public void Dispose()

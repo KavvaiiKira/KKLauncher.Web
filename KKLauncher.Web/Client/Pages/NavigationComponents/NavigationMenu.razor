@@ -9,23 +9,8 @@
             <div class="menu-item" @onclick="@ApplicationsSelectionChanged">
                 APPLICATIONS
             </div>
-            <div class="menu-strip-line">
-            </div>
-            <div class="collection-add-item">
-                <div class="collection-add-text">
-                    Collections
-                </div>
-                <div class="collection-add-img">
-                    <img class="col-add-image" src="icons/add-collection.png" @onclick="ShowAddCollectionForm" draggable="false" />
-                </div>
-            </div>
-            <div class="menu-strip-line collection-form">
-                <div class="add-collection-form--wrapper @(_addCollectionShown ? "show" : string.Empty)">
-                    @if (_addCollectionShown)
-                    {
-                        <AddCollectionForm />
-                    }
-                </div>
+            <div class="collections-menu">
+                <CollectionsMenu />
             </div>
         </div>
         <div class="navigation--footer">
