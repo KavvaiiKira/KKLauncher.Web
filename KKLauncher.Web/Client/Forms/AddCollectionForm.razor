@@ -7,13 +7,16 @@
 <div class="add-collection-form">
     @if (_show)
     {
-        <EditForm EditContext="_editContext" OnValidSubmit="ValidSubmit" class="add-collection-main--wrapper" style="height: 100%;">
-            <div class="left-inputs--wrapper">
+        <EditForm EditContext="_editContext" OnValidSubmit="ValidSubmit" class="edit-form--wrapper">
+            <div class="main-inputs--wrapper">
                 <div class="collection-name">
                     <label for="collection-name-input">Name:</label>
                     <InputText class="collection-name-input-s" id="collection-name-input" @bind-Value="_collection!.Name" />
                     <div class="validation-error-message">
                         <ValidationMessage For="() => _collection!.Name" />
+                    </div>
+                    <div class="apps-selector">
+                        <CollectionAppsSelectForm @ref="@_collectionAppsSelectForm"/>
                     </div>
                 </div>
                 <div class="form-action-buttons--wrapper">

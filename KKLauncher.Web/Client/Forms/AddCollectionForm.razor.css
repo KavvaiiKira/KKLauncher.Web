@@ -1,23 +1,24 @@
 ﻿.add-collection-form {
     width: 100%;
-    height: 100%;
-    padding: 10px;
     color: #2F4858;
     font-weight: 800;
     background-color: #00B3BB;
 }
 
-::deep .add-collection-main--wrapper {
-    display: flex;
-    flex-direction: row;
-}
-
-.left-inputs--wrapper {
-    width: 200px;
+::deep .edit-form--wrapper {
+    width: 100%;
     height: 100%;
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-inputs--wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 90%;
+    display: flex;
     flex-direction: column;
-    justify-content: space-around;
 }
 
 .collection-name {
@@ -41,6 +42,11 @@
     font-size: 16px;
     font-weight: 800;
     height: 20px;
+}
+
+.apps-selector {
+    width: 100%;
+    height: auto;
 }
 
 .form-action-buttons--wrapper {

@@ -1,0 +1,12 @@
+﻿.apps-selecting-main--wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.selected-apps-grid {
+    border: 1px solid #E8F3F1;
+    width: 100%;
+    min-height: 50px;
+}

@@ -10,6 +10,7 @@ namespace KKLauncher.Web.Client.Forms
         private EditContext? _editContext;
         private ValidationMessageStore? _messageStore;
         private bool _show = true;
+        private CollectionAppsSelectForm? _collectionAppsSelectForm;
 
         protected override void OnInitialized()
         {
