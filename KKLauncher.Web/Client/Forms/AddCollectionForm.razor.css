@@ -1,5 +1,6 @@
 ﻿.add-collection-form {
     width: 100%;
+    height: 100%;
     color: #2F4858;
     font-weight: 800;
     background-color: #00B3BB;
@@ -14,14 +15,14 @@
 }
 
 .main-inputs--wrapper {
-    padding-top: 10px;
-    padding-bottom: 10px;
     width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .collection-name {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -36,17 +37,21 @@
     background-color: #E8F3F1;
 }
 
+    ::deep .collection-name-input-s:focus {
+        outline: 1px solid #2F4858;
+    }
+
 .validation-error-message {
     width: 100%;
     color: #A72828;
     font-size: 16px;
     font-weight: 800;
-    height: 20px;
+    min-height: 20px;
 }
 
 .apps-selector {
     width: 100%;
-    height: auto;
+    height: 100%;
 }
 
 .form-action-buttons--wrapper {
@@ -54,6 +59,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .create-action-button, .cancel-action-button {

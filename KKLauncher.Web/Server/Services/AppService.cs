@@ -71,6 +71,28 @@ namespace KKLauncher.Web.Server.Services
             }
         }
 
+        public async Task<IEnumerable<AppViewDto>> SearchAppsAsync(string localIp, string appNameContainsKey)
+        {
+            var pcEntity = await _pcRepository.FirstOrDefaultAsync(pc => pc.LocalIp == localIp);
+            if (pcEntity == null)
+            {
+                throw new ArgumentNullException($"PC with local IP: {localIp} not found!");
+            }
+
+            var resultApps = await _appRepository
+                .GetAll()
+                .Where(a =>
+                    a.PCId == pcEntity.Id &&
+                    (a.Name.StartsWith(appNameContainsKey) ||
+                        (!a.Name.StartsWith(appNameContainsKey) && a.Name.Contains(appNameContainsKey))))
+                .OrderBy(a => a.Name.StartsWith(appNameContainsKey))
+                .ToListAsync();
+            
+            return resultApps.Any() ?
+                resultApps.Select(_mapper.Map<AppViewDto>) :
+                Enumerable.Empty<AppViewDto>();
+        }
+
         public async Task<AppViewDto?> GetAppViewByIdAsync(Guid appId)
         {
             try

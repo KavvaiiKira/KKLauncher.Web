@@ -5,6 +5,24 @@
     flex-direction: column;
 }
 
+.app-search-text {
+}
+
+::deep .app-search-input {
+    border: 1px solid #2F4858;
+    font-family: "Exo 2", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 20px;
+    line-height: 20px;
+    background-color: #E8F3F1;
+    margin-bottom: 10px;
+}
+
+    ::deep .app-search-input:focus {
+        outline: 1px solid #2F4858;
+    }
+
 .selected-apps-grid {
     border: 1px solid #E8F3F1;
     width: 100%;

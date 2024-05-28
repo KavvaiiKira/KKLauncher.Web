@@ -1,4 +1,4 @@
-﻿namespace KKLauncher.Web.Contracts
+﻿namespace KKLauncher.Web.Contracts.ResponseDtos
 {
     public class PCLoginResponseDto
     {

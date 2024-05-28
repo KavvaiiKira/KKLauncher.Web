@@ -43,6 +43,7 @@ namespace KKLauncher.Web.Client.Forms
             }
 
             _collection.Id = Guid.NewGuid();
+            _collection.Apps = _collectionAppsSelectForm.GetPinnedAppIds();
         }
 
         private async Task Cancel()

@@ -42,6 +42,25 @@ namespace KKLauncher.Web.Server.Controllers
             return Ok(res);
         }
 
+        [HttpGet("appsearch/{ip}/{appNameKey}")]
+        [ProducesResponseType(typeof(IEnumerable<AppViewDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> SearchApplicationsAsync(string ip, string appNameKey)
+        {
+            if (string.IsNullOrEmpty(ip))
+            {
+                return BadRequest("Local ip for app search must not be NULL or EMPTY!");
+            }
+
+            if (string.IsNullOrEmpty(appNameKey))
+            {
+                return BadRequest("App name search pattern must not be NULL or EMPTY!");
+            }
+
+            var res = await _appService.SearchAppsAsync(ip, appNameKey);
+
+            return Ok(res);
+        }
+
         [HttpGet("appview/{id}")]
         [ProducesResponseType(typeof(AppViewDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAppViewByIdAsync(string id)

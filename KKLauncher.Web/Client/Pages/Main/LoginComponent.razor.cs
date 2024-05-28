@@ -1,5 +1,5 @@
 ﻿using KKLauncher.Web.Client.Models;
-using KKLauncher.Web.Contracts;
+using KKLauncher.Web.Contracts.PCs;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 

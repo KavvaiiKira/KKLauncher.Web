@@ -1,4 +1,5 @@
-﻿using KKLauncher.Web.Contracts;
+﻿using KKLauncher.Web.Contracts.PCs;
+using KKLauncher.Web.Contracts.ResponseDtos;
 using KKLauncher.Web.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-﻿using KKLauncher.Web.Contracts;
+﻿using KKLauncher.Web.Contracts.ResponseDtos;
 using System.Diagnostics;
 
 namespace KKLauncher.Web.Server.Services

@@ -1,5 +1,6 @@
 ﻿using KKLauncher.DB.Entities;
-using KKLauncher.Web.Contracts;
+using KKLauncher.Web.Contracts.PCs;
+using KKLauncher.Web.Contracts.ResponseDtos;
 using KKLauncher.Web.Server.Repositories.Base;
 
 namespace KKLauncher.Web.Server.Services

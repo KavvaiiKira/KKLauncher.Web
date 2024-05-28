@@ -1,4 +1,11 @@
-﻿<div class="apps-selecting-main--wrapper">
+﻿@inject ILocalStorageService _localStorageService
+@inject IAppService _appService
+
+<div class="apps-selecting-main--wrapper">
+    <label class="app-search-text" for="app-search-input-id">
+        Search and pin applications:
+    </label>
+    <input type="text" id="app-search-input-id" class="app-search-input" placeholder="App name..." @oninput="@SearchAppNameOnInput" />
     <div class="selected-apps-grid">
 
     </div>

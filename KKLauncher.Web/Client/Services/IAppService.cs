@@ -8,6 +8,8 @@ namespace KKLauncher.Web.Client.Services
 
         Task<IEnumerable<AppViewDto>> GetAppsByPCLocalIpAsync(string pcLocalIp);
 
+        Task<IEnumerable<AppViewDto>> SearchAppsAsync(string localIp, string appNameContainsKey);
+
         Task<AppViewDto?> GetAppViewByIdAsync(Guid appId);
 
         Task<bool> DeleteAppAsync(Guid appId);

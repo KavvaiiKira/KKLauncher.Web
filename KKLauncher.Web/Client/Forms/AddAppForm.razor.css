@@ -34,6 +34,10 @@
     background-color: #E8F3F1;
 }
 
+    ::deep .app-name-input-s:focus, ::deep .app-path-input-s:focus, ::deep .app-steam-id-input-s:focus {
+        outline: 1px solid #2F4858;
+    }
+
 .validation-error-message {
     width: 100%;
     color: #A72828;
