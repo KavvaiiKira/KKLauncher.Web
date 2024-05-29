@@ -6,18 +6,8 @@
 
         public string Name { get; set; }
 
-        public List<Guid> Apps { get; set; }
+        public string PCLocalIp { get; set; }
 
-        public CollectionDto()
-        {
-            
-        }
-
-        public CollectionDto(Guid id, string name, List<Guid> apps, byte[]? image = null)
-        {
-            Id = id;
-            Name = name;
-            Apps = apps;
-        }
+        public List<Guid> AppIds { get; set; }
     }
 }

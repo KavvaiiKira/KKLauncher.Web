@@ -2,11 +2,33 @@
 @inject IAppService _appService
 
 <div class="apps-selecting-main--wrapper">
-    <label class="app-search-text" for="app-search-input-id">
+    <label for="app-search-input-id">
         Search and pin applications:
     </label>
     <input type="text" id="app-search-input-id" class="app-search-input" placeholder="App name..." @oninput="@SearchAppNameOnInput" />
+    <div class="searched-apps">
+        <div class="sa-item found-flag @(_appsFound ? "not-found" : "")" disabled="true" hidden="@_appsFound">Nothing found.</div>
+        @foreach (var searchedApp in _searchedApps)
+        {
+            <div class="sa-item @(_pinnedAppIds.Contains(searchedApp.Id) ? "active" : "")"
+                @ondblclick="@(e => SearchedAppDoubleClick(e, searchedApp.Id))">
+                @(searchedApp.Name)
+            </div>
+        }
+    </div>
     <div class="selected-apps-grid">
-
+        @foreach (var pinnedApp in _pinnedApps)
+        {
+            <div class="pinned-app">
+                <div class="pa-name">
+                    @(pinnedApp.Name)
+                </div>
+                <div class="pa-remove" @onclick="@(e => RemoveAppFromPinned(e, pinnedApp.Id))">
+                    <div class="pa-remove-image--wrapper">
+                        <img class="pa-remove-img" src="/icons/collection_app_remove.png" draggable="false" />
+                    </div>
+                </div>
+            </div>
+        }
     </div>
 </div>

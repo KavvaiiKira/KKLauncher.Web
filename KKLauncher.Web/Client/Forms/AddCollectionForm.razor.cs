@@ -1,4 +1,6 @@
-﻿using KKLauncher.Web.Client.Events;
+﻿using Blazored.LocalStorage;
+using KKLauncher.Web.Client.Events;
+using KKLauncher.Web.Client.Models;
 using KKLauncher.Web.Contracts.Collections;
 using Microsoft.AspNetCore.Components.Forms;
 
@@ -42,8 +44,26 @@ namespace KKLauncher.Web.Client.Forms
                 return;
             }
 
+            var loginToken = await _localStorageService.GetItemAsync<LoginToken>(nameof(LoginToken));
+            if (loginToken == null)
+            {
+                //TODO: Toasts
+                return;
+            }
+
             _collection.Id = Guid.NewGuid();
-            _collection.Apps = _collectionAppsSelectForm.GetPinnedAppIds();
+            _collection.AppIds = _collectionAppsSelectForm!.GetPinnedAppIds();
+            _collection.PCLocalIp = loginToken.LoginIp;
+
+            if (!await _collectionService.AddCollectionAsync(_collection))
+            {
+                //TODO: Toasts
+                return;
+            }
+
+            await Cancel();
+
+            await _bus.Publish(new CollectionAddedEvent(_collection.Id));
         }
 
         private async Task Cancel()

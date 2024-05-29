@@ -18,6 +18,7 @@
     }
 
     .add-app-main--wrapper.add-app-active {
+        z-index: 1;
         box-shadow: 10px 10px 10px #E8F3F1;
     }
 

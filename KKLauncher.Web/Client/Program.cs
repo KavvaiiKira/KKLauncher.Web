@@ -33,6 +33,7 @@ namespace KKLauncher.Web.Client
 
             builder.Services.AddScoped<ILoginService, LoginService>();
             builder.Services.AddScoped<IAppService, AppService>();
+            builder.Services.AddScoped<ICollectionService, CollectionService>();
 
             builder.Services.AddScoped<IAppStartService, AppStartService>();
 

@@ -12,7 +12,21 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    overflow: auto;
 }
+
+    ::deep .edit-form--wrapper::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    ::deep .edit-form--wrapper::-webkit-scrollbar-track {
+        background-color: #E8F3F1;
+        border: 1px solid #E8F3F1;
+    }
+
+    ::deep .edit-form--wrapper::-webkit-scrollbar-thumb {
+        background-color: #108DA0;
+    }
 
 .main-inputs--wrapper {
     width: 90%;
@@ -52,6 +66,7 @@
 .apps-selector {
     width: 100%;
     height: 100%;
+    padding-bottom: 20px;
 }
 
 .form-action-buttons--wrapper {
@@ -59,7 +74,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 10px;
+    padding-bottom: 10px;
 }
 
 .create-action-button, .cancel-action-button {

@@ -1,5 +1,7 @@
 ﻿@using KKLauncher.Web.Contracts.Collections
 
+@inject ICollectionService _collectionService
+@inject ILocalStorageService _localStorageService
 @inject ComponentBus _bus
 
 @implements IDisposable

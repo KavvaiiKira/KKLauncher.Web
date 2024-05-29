@@ -1,6 +1,6 @@
 ﻿using KKLauncher.Web.Contracts.Collections;
 
-namespace KKLauncher.Web.Server.Services
+namespace KKLauncher.Web.Client.Services
 {
     public interface ICollectionService
     {

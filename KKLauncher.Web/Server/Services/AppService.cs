@@ -71,6 +71,23 @@ namespace KKLauncher.Web.Server.Services
             }
         }
 
+        public async Task<AppViewDto?> GetAppViewByIdAsync(Guid appId)
+        {
+            try
+            {
+                var appEntity = await _appRepository.FirstOrDefaultAsync(a => a.Id == appId);
+
+                return appEntity != null ?
+                    _mapper.Map<AppViewDto>(appEntity) :
+                    throw new ArgumentNullException($"Application with ID: {appId} not found!");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error while getting Applicaton with ID: {appId}. Error message: {ex.Message}");
+                return null;
+            }
+        }
+
         public async Task<IEnumerable<AppViewDto>> SearchAppsAsync(string localIp, string appNameContainsKey)
         {
             var pcEntity = await _pcRepository.FirstOrDefaultAsync(pc => pc.LocalIp == localIp);
@@ -88,27 +105,10 @@ namespace KKLauncher.Web.Server.Services
                     a.Name.ToLower().Contains(appNameContainsKey))
                 .OrderBy(a => a.Name.ToLower().StartsWith(appNameContainsKey))
                 .ToListAsync();
-            
+
             return resultApps.Any() ?
                 resultApps.Select(_mapper.Map<AppViewDto>) :
                 Enumerable.Empty<AppViewDto>();
-        }
-
-        public async Task<AppViewDto?> GetAppViewByIdAsync(Guid appId)
-        {
-            try
-            {
-                var appEntity = await _appRepository.FirstOrDefaultAsync(a => a.Id == appId);
-
-                return appEntity != null ?
-                    _mapper.Map<AppViewDto>(appEntity) :
-                    throw new ArgumentNullException($"Application with ID: {appId} not found!");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Error while getting Applicaton with ID: {appId}. Error message: {ex.Message}");
-                return null;
-            }
         }
 
         public async Task<bool> RemoveAppAsync(Guid appId)

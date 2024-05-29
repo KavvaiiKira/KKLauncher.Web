@@ -29,16 +29,16 @@ namespace KKLauncher.Web.Client.Services
             return res ?? Enumerable.Empty<AppViewDto>();
         }
 
-        public async Task<IEnumerable<AppViewDto>> SearchAppsAsync(string localIp, string appNameContainsKey)
-        {
-            var res = await _httpClient.GetFromJsonAsync<IEnumerable<AppViewDto>>($"{_baseUri}appsearch/{localIp}/{appNameContainsKey}");
-            return res ?? Enumerable.Empty<AppViewDto>();
-        }
-
         public async Task<AppViewDto?> GetAppViewByIdAsync(Guid appId)
         {
             var res = await _httpClient.GetFromJsonAsync<AppViewDto>($"{_baseUri}appview/{appId}");
             return res;
+        }
+
+        public async Task<IEnumerable<AppViewDto>> SearchAppsAsync(string localIp, string appNameContainsKey)
+        {
+            var res = await _httpClient.GetFromJsonAsync<IEnumerable<AppViewDto>>($"{_baseUri}appsearch/{localIp}/{appNameContainsKey}");
+            return res ?? Enumerable.Empty<AppViewDto>();
         }
 
         public async Task<bool> DeleteAppAsync(Guid appId)

@@ -42,6 +42,20 @@ namespace KKLauncher.Web.Server.Controllers
             return Ok(res);
         }
 
+        [HttpGet("appview/{id}")]
+        [ProducesResponseType(typeof(AppViewDto), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetAppViewByIdAsync(string id)
+        {
+            if (!Guid.TryParse(id, out var appId))
+            {
+                return BadRequest("Application ID must be GUID!");
+            }
+
+            var res = await _appService.GetAppViewByIdAsync(appId);
+
+            return Ok(res);
+        }
+
         [HttpGet("appsearch/{ip}/{appNameKey}")]
         [ProducesResponseType(typeof(IEnumerable<AppViewDto>), StatusCodes.Status200OK)]
         public async Task<IActionResult> SearchApplicationsAsync(string ip, string appNameKey)
@@ -57,20 +71,6 @@ namespace KKLauncher.Web.Server.Controllers
             }
 
             var res = await _appService.SearchAppsAsync(ip, appNameKey);
-
-            return Ok(res);
-        }
-
-        [HttpGet("appview/{id}")]
-        [ProducesResponseType(typeof(AppViewDto), StatusCodes.Status200OK)]
-        public async Task<IActionResult> GetAppViewByIdAsync(string id)
-        {
-            if (!Guid.TryParse(id, out var appId))
-            {
-                return BadRequest("Application ID must be GUID!");
-            }
-
-            var res = await _appService.GetAppViewByIdAsync(appId);
 
             return Ok(res);
         }
