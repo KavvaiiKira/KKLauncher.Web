@@ -10,6 +10,8 @@ namespace KKLauncher.Web.Server.Extensions
             services.AddScopedWithLogging<IAppCollectionService, AppCollectionService>();
             services.AddScopedWithLogging<IAppService, AppService>();
             services.AddScopedWithLogging<ICollectionService, CollectionService>();
+
+            services.AddScopedWithLogging<IAppStartService, AppStartService>();
         }
     }
 }

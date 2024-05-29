@@ -50,7 +50,7 @@ namespace KKLauncher.Web.Server.Services
             }
         }
 
-        public async Task<IEnumerable<AppViewDto>> GetApplicationsByPCLocalIpAsync(string pcLocalIp)
+        public async Task<IEnumerable<AppViewDto>> GetAppsByPCLocalIpAsync(string pcLocalIp)
         {
             try
             {
@@ -79,13 +79,14 @@ namespace KKLauncher.Web.Server.Services
                 throw new ArgumentNullException($"PC with local IP: {localIp} not found!");
             }
 
+            appNameContainsKey = appNameContainsKey.ToLower();
+
             var resultApps = await _appRepository
                 .GetAll()
                 .Where(a =>
                     a.PCId == pcEntity.Id &&
-                    (a.Name.StartsWith(appNameContainsKey) ||
-                        (!a.Name.StartsWith(appNameContainsKey) && a.Name.Contains(appNameContainsKey))))
-                .OrderBy(a => a.Name.StartsWith(appNameContainsKey))
+                    a.Name.ToLower().Contains(appNameContainsKey))
+                .OrderBy(a => a.Name.ToLower().StartsWith(appNameContainsKey))
                 .ToListAsync();
             
             return resultApps.Any() ?

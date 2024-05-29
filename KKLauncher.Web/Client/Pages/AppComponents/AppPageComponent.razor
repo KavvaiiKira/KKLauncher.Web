@@ -1,4 +1,5 @@
-﻿@inject ComponentBus _bus
+﻿@inject IAppStartService _appStartService
+@inject ComponentBus _bus
 
 <div class="app-main--wrapper">
     @if (App != null)
@@ -17,7 +18,7 @@
             }
         </div>
         <div class="app-actions--wrapper">
-            <button class="app-action" @onclick="@Start">
+            <button class="app-action" @onclick="@StartAsync">
                 <img class="start-btn-image" src="icons/start.png" draggable="false" />
             </button>
             <button class="app-action @(App.IsSteamStartAvailable ? "" : "disabled-action")" @onclick="@StartWithSteam">
@@ -26,7 +27,7 @@
             <button class="app-action" @onclick="@Edit">
                 <img class="edit-btn-image" src="icons/edit.png" draggable="false" />
             </button>
-            <button class="app-action" @onclick="@Delete">
+            <button class="app-action" @onclick="@DeleteAsync">
                 <img class="delete-btn-image" src="icons/delete.png" draggable="false" />
             </button>
         </div>

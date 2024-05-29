@@ -2,9 +2,15 @@
 {
     public class AppStartResultDto
     {
-        public bool Success { get; private set; }
+        public bool Success { get; set; }
 
-        public string Message { get; private set; }
+        public string Message { get; set; }
+
+        public AppStartResultDto()
+        {
+            Success = false;
+            Message = string.Empty;
+        }
 
         public AppStartResultDto(bool success, string? message = null)
         {

@@ -1,20 +1,52 @@
-﻿using KKLauncher.Web.Contracts.ResponseDtos;
+﻿using KKLauncher.DB.Entities;
+using KKLauncher.Web.Contracts.ResponseDtos;
+using KKLauncher.Web.Server.Repositories.Base;
 using System.Diagnostics;
 
 namespace KKLauncher.Web.Server.Services
 {
     public class AppStartService : IAppStartService
     {
-        public AppStartResultDto StartAppWithSteam()
+        private readonly IAsyncRepository<AppEntity> _appRepository;
+        private readonly IAsyncRepository<PCEntity> _pcRepository;
+
+        public AppStartService(IAsyncRepository<AppEntity> appRepository, IAsyncRepository<PCEntity> pcRepository)
+        {
+            _appRepository = appRepository;
+            _pcRepository = pcRepository;
+        }
+
+        public async Task<AppStartResultDto> StartAppAsync(Guid appId)
         {
             try
             {
-                var startInfo = new ProcessStartInfo();
-                startInfo.CreateNoWindow = false;
-                startInfo.UseShellExecute = false;
-                startInfo.FileName = @"C:\Program Files (x86)\Steam\steam.exe";
+                var app = await _appRepository.FirstOrDefaultAsync(a => a.Id == appId);
+                if (app == null)
+                {
+                    throw new ArgumentNullException($"Application with ID: {appId} not found!");
+                }
 
-                startInfo.Arguments = "-applaunch 343780";
+                var pc = await _pcRepository.FirstOrDefaultAsync(p => p.Id == app.PCId);
+                if (pc == null)
+                {
+                    throw new ArgumentNullException($"PC with ID: {app.PCId} not found!");
+                }
+
+                var startInfo = new ProcessStartInfo();
+
+                if (string.IsNullOrEmpty(app.SteamId))
+                {
+                    startInfo.FileName = app.Path;
+                }
+                else
+                {
+                    startInfo.CreateNoWindow = false;
+                    startInfo.UseShellExecute = false;
+                    startInfo.FileName = pc.SteamPath;
+
+                    startInfo.Arguments = $"-applaunch {app.SteamId}";
+                }
+
                 Process.Start(startInfo);
             }
             catch (Exception ex)

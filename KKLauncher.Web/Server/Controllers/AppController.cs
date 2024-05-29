@@ -37,7 +37,7 @@ namespace KKLauncher.Web.Server.Controllers
                 return BadRequest("Requst BODY must not be NULL!");
             }
 
-            var res = await _appService.GetApplicationsByPCLocalIpAsync(localIp);
+            var res = await _appService.GetAppsByPCLocalIpAsync(localIp);
 
             return Ok(res);
         }

@@ -1,6 +1,6 @@
 ﻿using KKLauncher.Web.Contracts.ResponseDtos;
 
-namespace KKLauncher.Web.Server.Services
+namespace KKLauncher.Web.Client.Services
 {
     public interface IAppStartService
     {

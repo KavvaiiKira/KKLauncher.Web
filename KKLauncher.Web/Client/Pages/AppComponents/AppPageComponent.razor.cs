@@ -22,9 +22,18 @@ namespace KKLauncher.Web.Client.Pages.AppComponents
             _appImageUrl = string.Format("data:image/png;base64,{0}", imagesrc);
         }
 
-        private async Task Start()
+        private async Task StartAsync()
         {
+            if (App == null)
+            {
+                return;
+            }
 
+            var startResult = await _appStartService.StartAppAsync(App.Id);
+            if (!startResult.Success)
+            {
+                //TODO: Toasts
+            }
         }
 
         private async Task StartWithSteam()
@@ -40,7 +49,7 @@ namespace KKLauncher.Web.Client.Pages.AppComponents
 
         }
 
-        private async Task Delete()
+        private async Task DeleteAsync()
         {
             if (App != null)
             {
