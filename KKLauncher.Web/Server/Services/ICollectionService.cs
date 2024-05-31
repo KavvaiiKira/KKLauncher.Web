@@ -1,4 +1,5 @@
-﻿using KKLauncher.Web.Contracts.Collections;
+﻿using KKLauncher.Web.Contracts.Apps;
+using KKLauncher.Web.Contracts.Collections;
 
 namespace KKLauncher.Web.Server.Services
 {
@@ -9,5 +10,7 @@ namespace KKLauncher.Web.Server.Services
         Task<IEnumerable<CollectionViewDto>> GetCollectionsByPCLocalIpAsync(string pcLocalIp);
 
         Task<CollectionViewDto?> GetCollectionViewByIdAsync(Guid collectionId);
+
+        Task<IEnumerable<AppViewDto>> GetCollectionAppsAsync(Guid collectionId);
     }
 }

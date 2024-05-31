@@ -1,6 +1,8 @@
 ﻿using BlazorComponentBus;
+using KKLauncher.Web.Client.Constants;
 using KKLauncher.Web.Client.Events;
 using KKLauncher.Web.Client.Models;
+using KKLauncher.Web.Client.Pages.DynamicComponents;
 
 namespace KKLauncher.Web.Client.Pages.Main
 {
@@ -12,18 +14,34 @@ namespace KKLauncher.Web.Client.Pages.Main
 
         protected override void OnParametersSet()
         {
-            _bus.Subscribe<NavigationItemChanged>(NavigationItemChangedEventHandler);
+            _bus.Subscribe<ApplicationsMenuItemSelectedEvent>(ApplicationsMenuItemSelectedEventHandler);
+            _bus.Subscribe<CollectionSelectedEvent>(CollectionSelectedEventHandler);
         }
 
-        private void NavigationItemChangedEventHandler(MessageArgs message)
+        private void ApplicationsMenuItemSelectedEventHandler(MessageArgs message)
         {
-            var eventItem = message.GetMessage<NavigationItemChanged>();
-            if (eventItem == null || string.IsNullOrEmpty(eventItem.ComponentLabels))
+            RenderDynamicComponent(
+                new DynamicComponentData(
+                    typeof(AppsComponent),
+                    ComponentConstants.Titles.ApplicationsTitle));
+        }
+
+        private void CollectionSelectedEventHandler(MessageArgs message)
+        {
+            var eventItem = message.GetMessage<CollectionSelectedEvent>();
+            if (eventItem == null)
             {
                 return;
             }
 
-            RenderDynamicComponent(_dynamicComponentFactory.Create(eventItem.ComponentLabels));
+            RenderDynamicComponent(
+                new DynamicComponentData(
+                    typeof(CollectionAppsComponent),
+                    eventItem.CollectionName,
+                    new Dictionary<string, object>()
+                    {
+                        { nameof(CollectionAppsComponent.CollectionId), eventItem.CollectionId }
+                    }));
         }
 
         private void RenderDynamicComponent(DynamicComponentData dynamicComponentData)
@@ -42,7 +60,8 @@ namespace KKLauncher.Web.Client.Pages.Main
 
         public void Dispose()
         {
-            _bus.UnSubscribe<NavigationItemChanged>(NavigationItemChangedEventHandler);
+            _bus.UnSubscribe<ApplicationsMenuItemSelectedEvent>(ApplicationsMenuItemSelectedEventHandler);
+            _bus.UnSubscribe<CollectionSelectedEvent>(CollectionSelectedEventHandler);
         }
     }
 }

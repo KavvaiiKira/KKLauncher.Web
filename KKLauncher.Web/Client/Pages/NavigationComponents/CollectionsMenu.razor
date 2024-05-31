@@ -23,4 +23,12 @@
             }
         </div>
     </div>
+    <div class="collection-items">
+        @foreach (var collection in _collections)
+        {
+            <div class="collection-item" @onclick="(e => CollectionSelectedAsync(e, collection.Id))">
+                @collection.Name
+            </div>
+        }
+    </div>
 </div>

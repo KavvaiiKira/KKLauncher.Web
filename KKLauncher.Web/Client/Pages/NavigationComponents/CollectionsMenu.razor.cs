@@ -2,6 +2,7 @@
 using KKLauncher.Web.Client.Events;
 using KKLauncher.Web.Client.Models;
 using KKLauncher.Web.Contracts.Collections;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace KKLauncher.Web.Client.Pages.NavigationComponents
 {
@@ -74,6 +75,17 @@ namespace KKLauncher.Web.Client.Pages.NavigationComponents
             _collections.Add(newCollection);
 
             StateHasChanged();
+        }
+
+        private async Task CollectionSelectedAsync(MouseEventArgs args, Guid collectionId)
+        {
+            var collection = _collections.FirstOrDefault(c => c.Id == collectionId);
+            if (collection == null)
+            {
+                return;
+            }
+
+            await _bus.Publish(new CollectionSelectedEvent(collection.Id, collection.Name));
         }
 
         public void Dispose()

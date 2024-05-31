@@ -1,4 +1,5 @@
-﻿using KKLauncher.Web.Contracts.Collections;
+﻿using KKLauncher.Web.Contracts.Apps;
+using KKLauncher.Web.Contracts.Collections;
 using KKLauncher.Web.Server.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -46,12 +47,26 @@ namespace KKLauncher.Web.Server.Controllers
         [ProducesResponseType(typeof(CollectionViewDto), StatusCodes.Status200OK)]
         public async Task<IActionResult> GetCollectionViewByIdAsync(string id)
         {
-            if (!Guid.TryParse(id, out var appId))
+            if (!Guid.TryParse(id, out var collectionId))
             {
                 return BadRequest("Collection ID must be GUID!");
             }
 
-            var res = await _collectionService.GetCollectionViewByIdAsync(appId);
+            var res = await _collectionService.GetCollectionViewByIdAsync(collectionId);
+
+            return Ok(res);
+        }
+
+        [HttpGet("apps/{id}")]
+        [ProducesResponseType(typeof(IEnumerable<AppViewDto>), StatusCodes.Status200OK)]
+        public async Task<IActionResult> GetCollectionAppsAsync(string id)
+        {
+            if (!Guid.TryParse(id, out var CollectionId))
+            {
+                return BadRequest("Collection ID must be GUID!");
+            }
+
+            var res = await _collectionService.GetCollectionAppsAsync(CollectionId);
 
             return Ok(res);
         }

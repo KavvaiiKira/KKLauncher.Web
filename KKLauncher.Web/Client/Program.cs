@@ -1,7 +1,6 @@
 using BlazorComponentBus;
 using Blazored.LocalStorage;
 using KKLauncher.Web.Client.Authentication;
-using KKLauncher.Web.Client.Factories;
 using KKLauncher.Web.Client.Services;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -29,7 +28,6 @@ namespace KKLauncher.Web.Client
             builder.Services.AddScoped<AuthenticationStateProvider, KKAuthenticationStateProvider>();
 
             builder.Services.AddScoped<ComponentBus>();
-            builder.Services.AddScoped<IDynamicComponentFactory, DynamicComponentFactory>();
 
             builder.Services.AddScoped<ILoginService, LoginService>();
             builder.Services.AddScoped<IAppService, AppService>();
